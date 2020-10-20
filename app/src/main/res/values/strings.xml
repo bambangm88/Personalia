@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Personalia</string>
+    <string name="e_80"><![CDATA[E : < 80]]></string>
+    <string name="hostImage">http://45.112.125.33/WebApiPersonaliaApp/foto_profile/</string>
+    <string name="app_train">Train</string>
+    <string name="app_recognize">Recognition</string>
+    <string name="app_train_page">Face Training</string>
+    <string name="app_recognize_page">Face Recognizing</string>
+    <string name="picture_button">Take Photo</string>
+    <string name="recognize_button">Absen</string>
+</resources>

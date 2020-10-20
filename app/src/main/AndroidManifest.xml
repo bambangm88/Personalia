@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rsah.personalia">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/newicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/newicon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Menu.Absent.DetailAbsen"></activity>
+        <activity android:name=".Menu.Performance.signature_employee" />
+        <activity android:name=".Menu.Performance.KesimpulanBidanPerawat" />
+        <activity android:name=".Menu.Performance.Kesimpulan" />
+        <activity android:name=".Menu.Performance.Performance_Perawat" />
+        <activity android:name=".Menu.Performance.Performance_Bidan" />
+        <activity android:name=".Menu.Performance.Performance" />
+        <activity android:name=".Menu.Performance.PilihPeriodePerformance" />
+        <activity android:name=".Menu.Performance.Performance_IT" />
+        <activity android:name=".Menu.SlipGaji.ChooseJenisSlipGaji" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.General.nilai_1" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.IT.Penilaian_2" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.IT.Penilaian_3" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.IT.Penilaian_4" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.IT.Penilaian_5" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.IT.Penilaian_6" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.IT.Penilaian" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.General.nilai_2" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.General.nilai_3" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.General.nilai_4" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.General.nilai_5" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.General.nilai_6" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEBIDANAN.nilai_1_bid" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEBIDANAN.nilai_2_bid" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEBIDANAN.nilai_3_bid" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEBIDANAN.nilai_4_bid" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEBIDANAN.nilai_5_bid" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEBIDANAN.nilai_6_bid" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEPERAWATAN.nilai_1_pwt" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEPERAWATAN.nilai_2_pwt" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEPERAWATAN.nilai_3_pwt" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEPERAWATAN.nilai_4_pwt" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEPERAWATAN.nilai_5_pwt" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.KEPERAWATAN.nilai_6_pwt" />
+        <activity android:name=".Menu.SlipGaji.PilihPeriodeGaji" />
+        <activity android:name=".Menu.DataPribadi.Data_Pribadi" />
+        <activity android:name=".Menu.SlipGaji.slipGaji" />
+        <activity android:name=".Menu.TeamSaya.Team" />
+        <activity android:name=".Auth.ValidasiID" />
+        <activity android:name=".Auth.UploadFotoProfile" />
+        <activity android:name=".Auth.Daftar" />
+        <activity android:name=".Menu.Pengaturan.ChangePassword" />
+        <activity android:name=".Menu.Pengaturan.Pengaturan" />
+        <activity android:name=".Menu.SlipGaji.PilihPeriodeInsentifLembur" />
+        <activity android:name=".Menu.SlipGaji.PilihPeriodeInsentifTHR" />
+        <activity android:name=".Menu.SlipGaji.slipGajiTHR" />
+        <activity android:name=".Menu.SlipGaji.slipGajiLembur" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.signature" />
+        <activity android:name=".Menu.TeamSaya.PreviewTeam" />
+        <activity android:name=".Menu.TeamSaya.Penilaian.PilihPeriodePenilaian" />
+        <activity android:name=".Menu.Absent.FaceRecog.RecognizeActivity" />
+        <activity android:name=".Menu.Absent.FaceRecog.TrainActivity" />
+        <activity android:name=".Auth.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,5 @@
+include ':app'
+rootProject.name='Personalia'
+include ':openCVLibrary400pre'
+project(':openCVLibrary400pre').projectDir = new File(settingsDir, '../OpenCVFaceRecogonition/openCVLibrary400pre')
+

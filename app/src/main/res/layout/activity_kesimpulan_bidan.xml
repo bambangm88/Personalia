@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientbg"
+    tools:context=".Auth.Login">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_pay"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_gravity="center"
+            android:background="#fff"
+            android:theme="@style/mytoolbar"
+            app:elevation="4dp"
+            app:popupTheme="@style/Base.Theme.AppCompat.Light.DarkActionBar">
+
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="KESIMPULAN"
+                android:textColor="@color/text"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <androidx.cardview.widget.CardView
+
+            android:elevation="5dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp">
+
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:text="A. ASUHAN PASIEN 15%"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+                        <LinearLayout
+                        android:layout_marginTop="20px"
+                        android:layout_marginLeft="20px"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="NILAI"
+                            android:layout_width="250px"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text=": "
+                            android:layout_width="70px"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="right"
+                            android:textAlignment="textEnd"
+                            android:id="@+id/nilai_1_1"
+                            android:text=""
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_1_2"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_1_3"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+                        <View android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/text"/>
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:layout_marginTop="30dp"
+                            android:text="B. PENGETAHUAN KLINIK 10%"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+
+                   <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_2_1"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                   <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_2_2"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+
+
+                        <View android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/text"/>
+
+
+
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:layout_marginTop="30dp"
+                            android:text="C. PEMBELAJARAN DAN PENINGKATAN BERBASIS PRAKTIK 10%"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_3_1"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_3_2"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+
+
+
+
+
+                        <View android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/text"/>
+
+
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:layout_marginTop="30dp"
+                            android:text="D. KETERAMPILAN INTERPRSONAL DAN KOMUNIKASI TEURAPETIK 15%"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_4_1"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_4_2"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_4_3"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/text"/>
+
+
+
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:layout_marginTop="30dp"
+                            android:text="E. PROFESIONALSIME 15%"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_5_1"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_5_2"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_5_3"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_5_4"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_5_5"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_5_6"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+                        <View android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/text"/>
+
+
+
+
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:layout_marginTop="30dp"
+                            android:text="F. PRAKTEK BERBASIS SISTEM 20%"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_6_1"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="NILAI"
+                                android:layout_width="250px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:text=": "
+                                android:layout_width="70px"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAlignment="textEnd"
+                                android:id="@+id/nilai_6_2"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+                        <View android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/text"/>
+
+
+
+
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:textSize="18dp"
+                            android:layout_marginTop="30dp"
+                            android:text="KESIMPULAN"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_marginBottom="50dp"
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="20px"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/kesimpulan"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textSize="40dp"
+                                android:text="NILAI"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

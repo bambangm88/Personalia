@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="1. Ketepatan waktu timbang terima pasien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tanggung_jawab_1"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:hint="Nilai"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_tanggung_jawab_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="2. Mengikuti seminar 10 SKP setiap tahun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tanggung_jawab_2"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:hint="Nilai"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_tanggung_jawab_2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="3. Disiplin / kehadiran (finger scan)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tanggung_jawab_3"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:hint="Nilai"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_tanggung_jawab_3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="4. Tanggung jawab dan kerja sama team work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tanggung_jawab_4"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:hint="Nilai"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_tanggung_jawab_4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="5. Memakai seragam dan Atribut sesuai standar RS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tanggung_jawab_5"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:hint="Nilai"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_tanggung_jawab_5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="6. Mengikuti / menghadiri rapat / pertemuan bidang keperawatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/tanggung_jawab_6"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:hint="Nilai"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_tanggung_jawab_6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

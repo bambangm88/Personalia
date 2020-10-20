@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="1. Keahlian mendukung dan dpt menyelesaikan tugas sebelum waktu yg ditentukan serta mengerjakan tugas-tugas tambahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="2. Keahlian mendukung, selesaikan tugas pd waktunya dan kadang-kadang masih ada waktu mengerjakan tugas  tambahan "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="3. Keahlian mendukung dan kebanyakan dapat menyelesaikan tugas tepat pada waktunya. "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="4. Keahlian kurang mendukung dan Kadang-kadang tugas tidak dapat diselesaikan pada waktunya."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="5. Keahlian belum ada dan banyak tugas-tugas tidak diselesaikan pada waktunya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:layout_gravity="center"
+        android:id="@+id/skill_1"
+        android:maxLength="3"
+        android:inputType="number"
+        android:layout_marginLeft="10dp"
+        android:hint="Nilai"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/sp_skill_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:spinnerMode="dialog"/>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
