@@ -20,6 +20,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,9 +30,11 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.rsah.personalia.Auth.Login;
+import com.rsah.personalia.Helper.Helper;
 import com.rsah.personalia.MainActivity;
 import com.rsah.personalia.Model.ResponseData;
 import com.rsah.personalia.Model.ResponseEntityLogin;
@@ -49,7 +54,7 @@ import retrofit2.Response;
 
 public class DetailAbsen extends AppCompatActivity   {
 
-    private TextView currentLocation , tvname ;
+    private TextView currentLocation , tvname , distanceLoc ;
     private Context mContext;
     private ApiService API;
     private SessionManager session;
@@ -59,6 +64,9 @@ public class DetailAbsen extends AppCompatActivity   {
     public LocationManager locationManager;
     public Criteria criteria;
     public String bestProvider;
+    private RelativeLayout rlProgress ;
+    private Button CheckIn , CheckOut ;
+    private static double currentLoc = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +75,10 @@ public class DetailAbsen extends AppCompatActivity   {
 
         Bundle bundle = getIntent().getExtras();
         intentThatCalled = getIntent();
-
+        rlProgress = findViewById(R.id.rlprogress);
+        CheckIn = findViewById(R.id.btnCheckIn);
+        CheckOut= findViewById(R.id.btnCheckOut);
+        distanceLoc= findViewById(R.id.distancelocation);
 
 
         deteksiGPS();
@@ -99,7 +110,13 @@ public class DetailAbsen extends AppCompatActivity   {
                         // Got last known location. In some rare situations this can be null.
 
                         try {
+
                             getCompleteAddressString(location.getLatitude(),location.getLongitude());
+
+                            currentLoc = countDistanceLocation(location);
+                            String format = String.format(Locale.US, "%.1f", countDistanceLocation(location));
+
+                            distanceLoc.setText(format+" km dari office");
                         } catch (Exception e) {
                             e.printStackTrace();
                             Log.e("TAG", "onSuccess: error "+e.getMessage() );
@@ -117,6 +134,30 @@ public class DetailAbsen extends AppCompatActivity   {
                     }
                 });
 
+
+
+
+
+
+
+        CheckIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+
+                Absent(session.getUsername(),"IN");
+            }
+        });
+
+        CheckOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Absent(session.getUsername(),"OUT");
+            }
+        });
 
 
     }
@@ -250,7 +291,7 @@ public class DetailAbsen extends AppCompatActivity   {
 
     private void Absent(String empid, String request){
 
-        pDialog.show();
+        showProgress(true);
         Call<ResponseData> call = API.Absent( request,empid);
         call.enqueue(new Callback<ResponseData>() {
             @Override
@@ -259,65 +300,42 @@ public class DetailAbsen extends AppCompatActivity   {
                     if (response.body().getSuccess() != null) {
 
 
-                        if(response.body().getDataLogin().isEmpty()){
+                        if(response.body().getSuccess().equals("00") ){
 
-                            pDialog.cancel();
-                            Toast.makeText(mContext, "Password salah", Toast.LENGTH_LONG).show();
+                            showProgress(false);
 
-                        }
+                            if (request.equals("IN")){
 
-                        else if(response.body().getDataLogin().get(0).getCallback() != null){
+                                Helper.notifAlert(DetailAbsen.this,"Check In Berhasil");
 
-
-                            if(response.body().getDataLogin().get(0).getCallback().equals("1")){
-
-                                pDialog.cancel();
-                                Toast.makeText(mContext, "Akun sedang aktif", Toast.LENGTH_LONG).show();
-
-                            }
-
-                            if(response.body().getDataLogin().get(0).getCallback().equals("F")){
-
-                                pDialog.cancel();
-                                Toast.makeText(mContext, "Username salah", Toast.LENGTH_LONG).show();
+                            }else{
+                                Helper.notifAlert(DetailAbsen.this,"Check Out Berhasil");
 
                             }
 
 
 
+                        }else if(response.body().getSuccess().equals("01") ){
+                            showProgress(false);
 
-                        }
-                        else{
-                            pDialog.cancel();
-
-                            AllEntityLogin.addAll(response.body().getDataLogin()) ;
-
-                            for(ResponseEntityLogin model : AllEntityLogin) {
-
-                                session.createLoginSession(
-                                        model.getsEmpID()
-                                );
-
+                            if (request.equals("IN")){
+                                Toast.makeText(mContext, "Check In Sudah dilakukan", Toast.LENGTH_LONG).show();
+                            }else{
+                                Toast.makeText(mContext, "Check Out Sudah dilakukan", Toast.LENGTH_LONG).show();
                             }
 
-                            Intent intent = new Intent(Login.this, MainActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(mContext, "Login Berhasil", Toast.LENGTH_LONG).show();
-                            finish();
-
-
+                        }else{
+                            Toast.makeText(mContext, "Terjadi Kesalahan", Toast.LENGTH_LONG).show();
                         }
-
 
 
                     }else{
-                        pDialog.cancel();
-
+                        showProgress(false);
                         Toast.makeText(mContext, "Error Response Data", Toast.LENGTH_LONG).show();
                     }
 
                 }else{
-                    pDialog.cancel();
+                    showProgress(false);
                     Toast.makeText(mContext, "Error Response Data", Toast.LENGTH_LONG).show();
                 }
             }
@@ -325,15 +343,40 @@ public class DetailAbsen extends AppCompatActivity   {
             @Override
             public void onFailure(Call<ResponseData> call, Throwable t) {
 
-                pDialog.cancel();
-
-                Toast.makeText(mContext, "Internal server error / check your connection", Toast.LENGTH_SHORT).show();
+                showProgress(false);
+                Toast.makeText(mContext, "Internal server error"+t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("Error", "onFailure: "+t.getMessage() );
             }
         });
     }
 
 
+
+
+    private void showProgress (boolean bool){
+
+        if (bool){
+            rlProgress.setVisibility(View.VISIBLE);
+        }else{
+            rlProgress.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    private  double countDistanceLocation(Location location){
+        String srsaLat = "-6.499580" ;
+        String srsaLong = "107.471244" ;
+        double LatRsa = Double.parseDouble(srsaLat);
+        double LongRsa = Double.parseDouble(srsaLong);
+
+        LatLng latLng1 = new LatLng(LatRsa,LongRsa);
+        LatLng latLng2 = new LatLng(location.getLatitude(),location.getLongitude());
+
+        double jarak = Helper.CalculationByDistance(latLng1,latLng2);
+
+        return jarak;
+    }
 
 
 
