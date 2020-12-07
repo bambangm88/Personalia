@@ -81,4 +81,6 @@ dependencies {
 
 
 
+    implementation 'com.github.TutorialsAndroid:KAlertDialog:v14.0.19'
+
 }

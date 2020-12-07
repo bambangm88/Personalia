@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class Login extends AppCompatActivity {
     private ApiService API;
 
     private SessionManager session;
-
+    private RelativeLayout rlProgress ;
 
     private TextView btn_daftar ;
 
@@ -54,7 +55,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         session = new SessionManager(getApplicationContext());
-
+        rlProgress = findViewById(R.id.rlprogress);
         username = findViewById(R.id.editTextID) ;
         password = findViewById(R.id.editTextPassword);
 
@@ -119,7 +120,7 @@ public class Login extends AppCompatActivity {
     private void Login(String username, String password){
 
 
-        pDialog.show();
+        showProgress(true);
         Call<ResponseData> call = API.Login(username,password);
         call.enqueue(new Callback<ResponseData>() {
             @Override
@@ -130,7 +131,7 @@ public class Login extends AppCompatActivity {
 
                         if(response.body().getDataLogin().isEmpty()){
 
-                            pDialog.cancel();
+                            showProgress(false);
                             Toast.makeText(mContext, "Password salah", Toast.LENGTH_LONG).show();
 
                         }
@@ -140,14 +141,14 @@ public class Login extends AppCompatActivity {
 
                             if(response.body().getDataLogin().get(0).getCallback().equals("1")){
 
-                                pDialog.cancel();
+                                showProgress(false);
                                 Toast.makeText(mContext, "Akun sedang aktif", Toast.LENGTH_LONG).show();
 
                             }
 
                             if(response.body().getDataLogin().get(0).getCallback().equals("F")){
 
-                                pDialog.cancel();
+                                showProgress(false);
                                 Toast.makeText(mContext, "Username salah", Toast.LENGTH_LONG).show();
 
                             }
@@ -157,7 +158,7 @@ public class Login extends AppCompatActivity {
 
                         }
                         else{
-                            pDialog.cancel();
+                            showProgress(false);
 
                             AllEntityLogin.addAll(response.body().getDataLogin()) ;
 
@@ -180,13 +181,13 @@ public class Login extends AppCompatActivity {
 
 
                     }else{
-                        pDialog.cancel();
+                        showProgress(false);
 
                         Toast.makeText(mContext, "Error Response Data", Toast.LENGTH_LONG).show();
                     }
 
                 }else{
-                    pDialog.cancel();
+                    showProgress(false);
                     Toast.makeText(mContext, "Error Response Data", Toast.LENGTH_LONG).show();
                 }
             }
@@ -194,13 +195,22 @@ public class Login extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseData> call, Throwable t) {
 
-                pDialog.cancel();
-
-                Toast.makeText(mContext, "Internal server error / check your connection", Toast.LENGTH_SHORT).show();
+                showProgress(false);
+                Toast.makeText(mContext, "Internal server error "+t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("Error", "onFailure: "+t.getMessage() );
             }
         });
     }
 
+
+    private void showProgress (boolean bool){
+
+        if (bool){
+            rlProgress.setVisibility(View.VISIBLE);
+        }else{
+            rlProgress.setVisibility(View.GONE);
+        }
+
+    }
 
 }

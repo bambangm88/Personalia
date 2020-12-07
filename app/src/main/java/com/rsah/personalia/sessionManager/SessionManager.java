@@ -40,6 +40,8 @@ public class SessionManager {
 
     public static final String KEY_PWD= "pwd_";
     public static final String KEY_FORM= "form_";
+    public static final String KEY_IS_REGISTRASI_FACE= "regFace_";
+    public static final String KEY_FIRSTNAME= "firstName_";
 
     public static final String KEY_NAME_= "name_";
     public static final String KEY_BIDANG_= "bidang_";
@@ -134,12 +136,14 @@ public class SessionManager {
         editor.commit();
     }
 
-    public void createProfileSession( String jabatan, String idJabatan , String Pwd , String Form){ //storelogin
+    public void createProfileSession( String jabatan, String idJabatan , String Pwd , String Form,String isRegFace,String name){ //storelogin
 
         editor.putString(KEY_JABATAN,jabatan);
         editor.putString(KEY_JABATAN_ID,idJabatan);
         editor.putString(KEY_PWD,Pwd);
         editor.putString(KEY_FORM,Form);
+        editor.putString(KEY_IS_REGISTRASI_FACE,isRegFace);
+        editor.putString(KEY_FIRSTNAME,name);
         //  editor.putString(KEY_PASSWORD, password);
 
 
@@ -281,6 +285,12 @@ public class SessionManager {
 
     public String getKeyForm() {
         return pref.getString(KEY_FORM, "");
+    }
+    public String getIsRegFace() {
+        return pref.getString(KEY_IS_REGISTRASI_FACE, "");
+    }
+    public String getKeyFirstname() {
+        return pref.getString(KEY_FIRSTNAME, "");
     }
 
 

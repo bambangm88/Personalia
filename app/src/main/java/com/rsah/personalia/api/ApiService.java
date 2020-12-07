@@ -163,6 +163,9 @@ public interface ApiService {
     @POST("checkSignature")
     Call<ResponseData> checkSignature(@Field("periode") String periode,@Field("empID") String empID);
 
+    @FormUrlEncoded
+    @POST("updateRegistrationFace")
+    Call<ResponseData> registrationFace(@Field("status") String periode,@Field("employeeid") String empID);
 
     @FormUrlEncoded
     @POST("InsertTtdEmployee")

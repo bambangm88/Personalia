@@ -2,6 +2,7 @@ package com.rsah.personalia.Menu.Absent.FaceRecog;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -20,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +31,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.stetho.Stetho;
+import com.rsah.personalia.Helper.Helper;
+import com.rsah.personalia.Menu.Absent.DetailAbsen;
+import com.rsah.personalia.Model.ResponseData;
 import com.rsah.personalia.R;
+import com.rsah.personalia.api.ApiService;
+import com.rsah.personalia.api.Server;
+import com.rsah.personalia.sessionManager.SessionManager;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -53,14 +61,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 import static org.opencv.objdetect.Objdetect.CASCADE_SCALE_IMAGE;
 
 /**
  * Created by Assem Abozaid on 6/2/2018.
  */
 
-public class TrainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
-    private static String TAG = TrainActivity.class.getSimpleName();
+public class RegFaceActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
+    private static String TAG = RegFaceActivity.class.getSimpleName();
     private CameraBridgeViewBase openCVCamera;
     private Mat rgba,gray;
     private CascadeClassifier classifier;
@@ -71,6 +83,9 @@ public class TrainActivity extends AppCompatActivity implements CameraBridgeView
     private Storage local;
     private String[] uniqueLabels;
     FaceRecognizer recognize;
+    private Context mContext;
+    private ApiService API;
+    private RelativeLayout rlProgress ;
     private boolean trainfaces() {
         if(images.isEmpty())
             return false;
@@ -153,10 +168,15 @@ public class TrainActivity extends AppCompatActivity implements CameraBridgeView
                     dialog.dismiss();
                     addLabel(arrayAdapter.getItem(position));
                     Log.i(TAG, "Labels Size "+imagesLabels.size()+"");
+                    SessionManager sessionManager = new SessionManager(RegFaceActivity.this);
+                    registrasiface(sessionManager.getUsername(),"Y");
+
                 }
             });
         } else {
-            showEnterLabelDialog();
+            SessionManager sessionManager = new SessionManager(this);
+            String name = sessionManager.getKeyFirstname();
+            addLabel(name);
         }
 
     }
@@ -191,7 +211,7 @@ public class TrainActivity extends AppCompatActivity implements CameraBridgeView
                         if (!string.isEmpty()) { // Make sure the input is valid
                             // If input is valid, dismiss the dialog and add the label to the array
                             dialog.dismiss();
-                            addLabel(string);
+
                         }
                     }
                 });
@@ -236,6 +256,9 @@ public class TrainActivity extends AppCompatActivity implements CameraBridgeView
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Stetho.initializeWithDefaults(this);
 
+        mContext = this ;
+        API = Server.getAPIService();
+        rlProgress = findViewById(R.id.rlprogress);
         if (hasPermissions()){
             Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
             Log.i(TAG, "Permission Granted Before");
@@ -295,6 +318,79 @@ public class TrainActivity extends AppCompatActivity implements CameraBridgeView
 
         }
     }
+
+
+    private void showProgress (boolean bool){
+
+        if (bool){
+            rlProgress.setVisibility(View.VISIBLE);
+        }else{
+            rlProgress.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    private void registrasiface(String empid, String status){
+
+        showProgress(true);
+        Call<ResponseData> call = API.registrationFace( status,empid);
+        call.enqueue(new Callback<ResponseData>() {
+            @Override
+            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                if(response.isSuccessful()) {
+                    if (response.body().getSuccess() != null) {
+
+
+                        if(response.body().getSuccess().equals("00") ){
+
+                            showProgress(false);
+
+
+                            Helper.notifAlert(RegFaceActivity.this,"Registrasi Face Berhasil");
+
+
+                        }else if(response.body().getSuccess().equals("01") ){
+                            showProgress(false);
+
+                            Toast.makeText(mContext, "Terjadi Gagal", Toast.LENGTH_LONG).show();
+
+                        }else{
+                            Toast.makeText(mContext, "Terjadi Kesalahan", Toast.LENGTH_LONG).show();
+                        }
+
+
+                    }else{
+                        showProgress(false);
+                        Toast.makeText(mContext, "Error Response Data", Toast.LENGTH_LONG).show();
+                    }
+
+                }else{
+                    showProgress(false);
+                    Toast.makeText(mContext, "Error Response Data", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseData> call, Throwable t) {
+
+                showProgress(false);
+                Toast.makeText(mContext, "Internal server error"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("Error", "onFailure: "+t.getMessage() );
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         boolean allowed = true;

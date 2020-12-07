@@ -140,13 +140,16 @@ public class DetailAbsen extends AppCompatActivity   {
 
 
 
+
+
         CheckIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-
+                if (currentLoc > 0.6){
+                    Toast.makeText(mContext, "posisi tidak berada dalam jangkauan", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 Absent(session.getUsername(),"IN");
             }
@@ -155,6 +158,11 @@ public class DetailAbsen extends AppCompatActivity   {
         CheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (currentLoc > 0.6){
+                    Toast.makeText(mContext, "posisi tidak berada dalam jangkauan", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Absent(session.getUsername(),"OUT");
             }
         });
@@ -367,6 +375,9 @@ public class DetailAbsen extends AppCompatActivity   {
     private  double countDistanceLocation(Location location){
         String srsaLat = "-6.499580" ;
         String srsaLong = "107.471244" ;
+
+        //String srsaLat = "-6.216194" ;
+        //String srsaLong = " 106.762831" ;
         double LatRsa = Double.parseDouble(srsaLat);
         double LongRsa = Double.parseDouble(srsaLong);
 

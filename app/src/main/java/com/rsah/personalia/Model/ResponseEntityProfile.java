@@ -76,6 +76,19 @@ public class ResponseEntityProfile {
     @SerializedName("Form")
     private String Form;
 
+    @SerializedName("isRegistrationFace")
+    private String isRegistrationFace;
+
+    public String getIsRegistrationFace() {
+        return isRegistrationFace;
+    }
+
+    public void setIsRegistrationFace(String isRegistrationFace) {
+        this.isRegistrationFace = isRegistrationFace;
+    }
+
+
+
     public String getForm() {
         return Form;
     }

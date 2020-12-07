@@ -37,6 +37,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import com.rsah.personalia.Menu.Absent.FaceRecog.GpsUtils;
 import com.rsah.personalia.Menu.Absent.FaceRecog.RecognizeActivity;
 import com.rsah.personalia.Helper.Helper;
+import com.rsah.personalia.Menu.Absent.FaceRecog.RegFaceActivity;
 import com.rsah.personalia.Menu.DataPribadi.Data_Pribadi;
 import com.rsah.personalia.Menu.Pengaturan.Pengaturan;
 import com.rsah.personalia.Menu.Performance.PilihPeriodePerformance;
@@ -221,7 +222,15 @@ public class MainActivity extends AppCompatActivity    {
 
                 //startActivity(new Intent(mContext , Team.class));
 
-                startActivity(new Intent(mContext , RecognizeActivity.class));
+                if (session.getIsRegFace().equals("Y")){
+                    startActivity(new Intent(mContext , RecognizeActivity.class));
+
+                }else{
+                    Toast.makeText(mContext, "Wajah Anda Belum Terdaftar, Silahkan Registrasi", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(mContext , RegFaceActivity.class));
+                }
+
+
 
             }
         });
@@ -282,13 +291,14 @@ public class MainActivity extends AppCompatActivity    {
                             String sex = response.body().getDataProfile().get(0).getSex() ;
                             String pwd = response.body().getDataProfile().get(0).getPwd() ;
                             String form = response.body().getDataProfile().get(0).getForm() ;
+                            String isRegistrasiFace = response.body().getDataProfile().get(0).getIsRegistrationFace() ;
 
                             //String ttl = response.body().getDataProfile().get(0).getsPlaceOfBirthDay() + ", " +response.body().getDataId().get(0).getdDateOfBirthDay() ;
                             //String alamat = response.body().getDataProfile().get(0).getsAddress() ;
 
                             String image_ = response.body().getDataProfile().get(0).getFoto() ;
 
-                            session.createProfileSession(jabatan_,IDjabatan_,pwd,form);
+                            session.createProfileSession(jabatan_,IDjabatan_,pwd,form,isRegistrasiFace,nama_);
 
 
 
@@ -484,7 +494,7 @@ public class MainActivity extends AppCompatActivity    {
                         wayLatitude = location.getLatitude();
                         wayLongitude = location.getLongitude();
                        // txtLocation.setText(String.format(Locale.US, "%s - %s", wayLatitude, wayLongitude));
-                        Toast.makeText(mContext, String.format(Locale.US, "%s - %s", wayLatitude, wayLongitude), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(mContext, String.format(Locale.US, "%s - %s", wayLatitude, wayLongitude), Toast.LENGTH_LONG).show();
                     } else {
                         mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
                     }

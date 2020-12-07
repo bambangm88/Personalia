@@ -90,7 +90,7 @@
         <activity android:name=".Menu.TeamSaya.PreviewTeam" />
         <activity android:name=".Menu.TeamSaya.Penilaian.PilihPeriodePenilaian" />
         <activity android:name=".Menu.Absent.FaceRecog.RecognizeActivity" />
-        <activity android:name=".Menu.Absent.FaceRecog.TrainActivity" />
+        <activity android:name=".Menu.Absent.FaceRecog.RegFaceActivity" />
         <activity android:name=".Auth.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

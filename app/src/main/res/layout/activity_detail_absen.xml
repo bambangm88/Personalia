@@ -59,7 +59,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="30dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_baseline_navigation_24"
+                android:tint="@color/black" />
+
+
+            <TextView
+                android:id="@+id/distancelocation"
+                android:text=""
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
         <Button
             android:textColor="@color/white"

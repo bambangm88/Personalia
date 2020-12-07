@@ -45,7 +45,7 @@ import static org.opencv.objdetect.Objdetect.CASCADE_SCALE_IMAGE;
  */
 
 public class RecognizeActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
-    private static String TAG = TrainActivity.class.getSimpleName();
+    private static String TAG = RegFaceActivity.class.getSimpleName();
     private CameraBridgeViewBase openCVCamera;
     private Mat rgba,gray;
     private CascadeClassifier classifier;
@@ -123,7 +123,7 @@ public class RecognizeActivity extends AppCompatActivity implements CameraBridge
 
             }catch (Exception e){
 
-                startActivity(new Intent(this , TrainActivity.class));
+                startActivity(new Intent(this , RegFaceActivity.class));
                 Toast.makeText(getApplicationContext(), "Terjadi Kesalahan, Try Again", Toast.LENGTH_SHORT).show();
             }
 
